@@ -3,12 +3,8 @@ name: Système Monétaire CI
 on:
   push:
     branches: [ main, master ]
-    paths:
-      - 'SystèmeMonétaire/**'
   pull_request:
     branches: [ main, master ]
-    paths:
-      - 'SystèmeMonétaire/**'
 
 jobs:
   build:
