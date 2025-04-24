@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorTest {
 
@@ -7,12 +8,12 @@ class CalculatorTest {
 
     @Test
     void testAddition() {
-        assertEquals(4, calculator.add(2, 3));
+        assertEquals(5, calculator.add(2, 3));
     }
 
     @Test
     void testSubtraction() {
-        assertEquals(0, calculator.subtract(3, 2));
+        assertEquals(1, calculator.subtract(3, 2));
     }
 
     @Test
@@ -25,5 +26,9 @@ class CalculatorTest {
         assertEquals(2, calculator.divide(6, 3));
     }
 
-
+    @Test
+    void testDivisionByZero() {
+        assertThrows(ArithmeticException.class, () -> calculator.divide(5, 0));
+    }
+  
 }
