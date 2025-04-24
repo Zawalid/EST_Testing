@@ -1,10 +1,14 @@
-name: Java CI
+name: Système Monétaire CI
 
 on:
   push:
     branches: [ main, master ]
+    paths:
+      - 'SystèmeMonétaire/**'
   pull_request:
     branches: [ main, master ]
+    paths:
+      - 'SystèmeMonétaire/**'
 
 jobs:
   build:
@@ -22,15 +26,15 @@ jobs:
         
     - name: Build with Maven
       run: mvn -B package
-      working-directory: ./CalculatorTesting
+      working-directory: ./SystèmeMonétaireTesting
       
     - name: Run tests
       run: mvn test
-      working-directory: ./CalculatorTesting
+      working-directory: ./SystèmeMonétaireTesting
 
     - name: Upload test report
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: surefire-report
-        path: ./CalculatorTesting/target/surefire-reports
+        name: systeme-monetaire-report
+        path: ./SystèmeMonétaireTesting/target/surefire-reports
